@@ -48,4 +48,32 @@ var score;
 var currentQuestionIndex = 0;
 var timerInterval;
 var highScores = [];
-  
+
+// Event listeners
+startButton.addEventListener("click", startQuiz);
+viewScoresLink.addEventListener("click", showHighScores);
+for (var i = 0; i < answerButtons.length; i++) {
+  answerButtons[i].addEventListener("click", selectAnswer);
+}
+saveButton.addEventListener("click", saveScore);
+
+// Quiz functions
+function startQuiz() {
+  startContainer.style.display = "none";
+  questionContainer.style.display = "block";
+  timerContainer.style.display = "block";
+  timeLeft = 60;
+  score = 0;
+  currentQuestionIndex = 0;
+  displayQuestion();
+  startTimer();
+}
+
+function displayQuestion() {
+  var currentQuestion = questions[currentQuestionIndex];
+  questionText.textContent = currentQuestion.question;
+
+  for (var i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].textContent = currentQuestion.answers[i];
+  }
+}
