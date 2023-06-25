@@ -100,7 +100,7 @@ function selectAnswer() {
     }
   }
   
-  function startTimer() {
+function startTimer() {
     timerInterval = setInterval(function() {
       timeLeft--;
       if (timeLeft <= 0) {
@@ -110,14 +110,14 @@ function selectAnswer() {
     }, 1000);
   }
   
-  function endQuiz() {
+function endQuiz() {
     clearInterval(timerInterval);
     questionContainer.style.display = "none";
     timerContainer.style.display = "none";
     gameOverContainer.style.display = "block";
   }
   
-  function saveScore() {
+function saveScore() {
     var initials = initialsInput.value;
     if (initials) {
       var scoreEntry = { initials: initials, score: score };
@@ -130,7 +130,7 @@ function selectAnswer() {
     }
   }
   
-  function displayHighScores() {
+function displayHighScores() {
     highScoresList.innerHTML = "";
     for (var i = 0; i < highScores.length; i++) {
       var scoreEntry = highScores[i];
@@ -140,7 +140,7 @@ function selectAnswer() {
     }
   }
   
-  function showHighScores() {
+function showHighScores() {
     startContainer.style.display = "none";
     questionContainer.style.display = "none";
     timerContainer.style.display = "none";

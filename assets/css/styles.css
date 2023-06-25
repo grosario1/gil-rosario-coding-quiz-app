@@ -23,6 +23,10 @@ p {
     left: 10px;
 }
 
+#view-high-scores a:hover {
+    color: rgba(182, 80, 229, 0.955);
+}
+
 /* Top Right container for the Timer*/
 #timer-container {
 position: absolute;
@@ -38,7 +42,7 @@ right: 10px;
     cursor: pointer;
     font-family: "Sans Serif";
     font-size: 100%;
-    background-color: rgba(63, 63, 231, 0.87);
+    background-color: rgba(43, 43, 121, 0.87);
     border-radius: 5px;
     padding: 2px 10px;
     color: white;
@@ -49,12 +53,14 @@ right: 10px;
 .answer-button {
     display: list-item;
     list-style: decimal inside none;
-    /* flex-wrap: wrap; */
-    background-color: rgba(52, 52, 163, 0.87);
+    background-color: rgba(43, 43, 121, 0.87);
     color: white;
-    justify-content: center
+    justify-content: center;
 }
 
+#quiz-question {
+   display: none;
+}
 
 #start-container, 
 #game-over-container,
@@ -64,13 +70,18 @@ right: 10px;
     justify-content: center;
 }
 
-#start-button:hover, 
+#start-button:hover,
 .answer-button:hover {
-    background-color: rgba(84, 84, 198, 0.776);
+    background-color: rgba(182, 80, 229, 0.955);
 }
 
 .answer-button {
     margin: 10px;
+}
+
+#answers-container ol li {
+    list-style: decimal inside none;
+    color: white;
 }
 
 #high-scores-list {
