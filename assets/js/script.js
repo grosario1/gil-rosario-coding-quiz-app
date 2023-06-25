@@ -48,4 +48,102 @@ var score;
 var currentQuestionIndex = 0;
 var timerInterval;
 var highScores = [];
+
+// Event listeners
+startButton.addEventListener("click", startQuiz);
+viewScoresLink.addEventListener("click", showHighScores);
+for (var i = 0; i < answerButtons.length; i++) {
+  answerButtons[i].addEventListener("click", selectAnswer);
+}
+saveButton.addEventListener("click", saveScore);
+
+// Quiz functions
+function startQuiz() {
+  startContainer.style.display = "none";
+  questionContainer.style.display = "block";
+  timerContainer.style.display = "block";
+  timeLeft = 60;
+  score = 0;
+  currentQuestionIndex = 0;
+  displayQuestion();
+  startTimer();
+}
+
+function displayQuestion() {
+  var currentQuestion = questions[currentQuestionIndex];
+  questionText.textContent = currentQuestion.question;
+
+  for (var i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].textContent = currentQuestion.answers[i];
+  }
+}
+
+function selectAnswer() {
+    var selectedAnswer = this.textContent;
+    var currentQuestion = questions[currentQuestionIndex];
   
+    if (selectedAnswer === currentQuestion.correctAnswer) {
+      score++;
+    } else {
+      timeLeft -= 10;
+      if (timeLeft < 0) {
+        timeLeft = 0;
+      }
+    }
+  
+    currentQuestionIndex++;
+  
+    if (currentQuestionIndex === questions.length || timeLeft === 0) {
+      endQuiz();
+    } else {
+      displayQuestion();
+    }
+  }
+  
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      timeLeft--;
+      if (timeLeft <= 0) {
+        endQuiz();
+      }
+      timerElement.textContent = timeLeft;
+    }, 1000);
+  }
+  
+  function endQuiz() {
+    clearInterval(timerInterval);
+    questionContainer.style.display = "none";
+    timerContainer.style.display = "none";
+    gameOverContainer.style.display = "block";
+  }
+  
+  function saveScore() {
+    var initials = initialsInput.value;
+    if (initials) {
+      var scoreEntry = { initials: initials, score: score };
+      highScores.push(scoreEntry);
+      highScores.sort(function(a, b) {
+        return b.score - a.score;
+      });
+      displayHighScores();
+      showHighScores();
+    }
+  }
+  
+  function displayHighScores() {
+    highScoresList.innerHTML = "";
+    for (var i = 0; i < highScores.length; i++) {
+      var scoreEntry = highScores[i];
+      var li = document.createElement("li");
+      li.textContent = scoreEntry.initials + " - " + scoreEntry.score;
+      highScoresList.appendChild(li);
+    }
+  }
+  
+  function showHighScores() {
+    startContainer.style.display = "none";
+    questionContainer.style.display = "none";
+    timerContainer.style.display = "none";
+    gameOverContainer.style.display = "none";
+    highScoresContainer.style.display = "block";
+  }
