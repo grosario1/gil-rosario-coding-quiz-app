@@ -29,3 +29,19 @@ body {
     top: 10px;
     right: 10px;
   }
+
+  /* Styling for the Start Quiz button */
+  #start-button {
+    margin: 0 auto;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    font-family: "Sans Serif";
+    font-size: 100%;
+    background-color: rgba(63, 63, 231, 0.87);
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+    border: 0;
+    transition: background-color 0.1s;
+  }
