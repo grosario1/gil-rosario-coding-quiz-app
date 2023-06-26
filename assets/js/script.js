@@ -6,17 +6,17 @@ var questions = [
       correctAnswer: "alerts"
     },
     {
-      question: "The condition in an if/else statement is enclosed within __.",
+      question: "The condition in an if/else statement is enclosed within ____.",
       answers: ["quotes", "curly brackets", "parentheses", "square brackets"],
       correctAnswer: "parentheses"
     },
     {
-      question: "Arrays in JavaScript can be used to store __.",
+      question: "Arrays in JavaScript can be used to store ____.",
       answers: ["numbers and strings", "other arrays", "booleans", "all of the above"],
       correctAnswer: "all of the above"
     },
     {
-      question: "String values must be enclosed within __ when being assigned to variables.",
+      question: "String values must be enclosed within ____ when being assigned to variables.",
       answers: ["commas", "curly brackets", "quotes", "parentheses"],
       correctAnswer: "quotes"
     },
