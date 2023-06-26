@@ -37,7 +37,7 @@ var timerElement = document.getElementById("timer");
 var timerContainer = document.getElementById("timer-container");
 var gameOverContainer = document.getElementById("game-over-container");
 var initialsInput = document.getElementById("initials-input");
-var saveButton = document.getElementById("save-button");
+var submitButton = document.getElementById("submit-button");
 var highScoresList = document.getElementById("high-scores-list");
 var viewScoresLink = document.getElementById("view-scores-link");
 var highScoresContainer = document.getElementById("high-scores-container");
@@ -55,7 +55,7 @@ viewScoresLink.addEventListener("click", showHighScores);
 for (var i = 0; i < answerButtons.length; i++) {
   answerButtons[i].addEventListener("click", selectAnswer);
 }
-saveButton.addEventListener("click", saveScore);
+submitButton.addEventListener("click", saveScore);
 
 // Quiz functions
 function startQuiz() {
@@ -79,26 +79,44 @@ function displayQuestion() {
 }
 
 function selectAnswer() {
-    var selectedAnswer = this.textContent;
-    var currentQuestion = questions[currentQuestionIndex];
+  var selectedAnswer = this.textContent;
+  var currentQuestion = questions[currentQuestionIndex];
   
-    if (selectedAnswer === currentQuestion.correctAnswer) {
-      score++;
-    } else {
-      timeLeft -= 10;
-      if (timeLeft < 0) {
-        timeLeft = 0;
-      }
+  var feedback = document.createElement("div");
+  feedback.classList.add("feedback-container");
+
+  var feedbackText = document.createElement("p");
+  feedback.appendChild(feedbackText);
+  
+  if (selectedAnswer === currentQuestion.correctAnswer) {
+    score++;
+    feedbackText.textContent = "Correct!";
+    feedbackText.classList.add("correct");
+  } else {
+    timeLeft -= 10;
+    if (timeLeft < 0) {
+      timeLeft = 0;
     }
-  
-    currentQuestionIndex++;
-  
-    if (currentQuestionIndex === questions.length || timeLeft === 0) {
-      endQuiz();
-    } else {
-      displayQuestion();
-    }
+    feedbackText.textContent = "Wrong!";
+    feedbackText.classList.add("wrong");
   }
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex === questions.length || timeLeft === 0) {
+    endQuiz();
+  } else {
+    displayQuestion();
+  }
+
+  var answersContainer = document.getElementById("answers-container");
+  answersContainer.appendChild(feedback);
+  
+  setTimeout(function () {
+    answersContainer.removeChild(feedback);
+  }, 1000);
+
+}
   
 function startTimer() {
     timerInterval = setInterval(function() {

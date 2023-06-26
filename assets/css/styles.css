@@ -1,41 +1,38 @@
 body {
     font-family: Arial, sans-serif;
-}
+ }
 
 /* Heading styles */
-h1, h2 {
+h1, h2, p {
     text-align: center;
-}
-
-p {
-    text-align: center;
-}
+ }
 
 .main {
     margin: 100px auto 0 auto;
     max-width: 600px;
-}
+ }
 
 /* Top left container for the view high scores */
 #view-high-scores {
     position: absolute;
     top: 10px;
     left: 10px;
-}
+ }
 
 #view-high-scores a:hover {
     color: rgba(182, 80, 229, 0.955);
-}
+ }
 
 /* Top Right container for the Timer*/
 #timer-container {
 position: absolute;
 top: 10px;
 right: 10px;
-}
+ }
 
 /* Styling for the Start Quiz button */
-#start-button {
+#start-button,
+#submit-button {
     margin: 0 auto;
     display: inline-block;
     margin: 5px;
@@ -48,19 +45,19 @@ right: 10px;
     color: white;
     border: 0;
     transition: background-color 0.1s;
-}
+ }
 
 .answer-button {
     display: list-item;
-    list-style: decimal inside none;
     background-color: rgba(43, 43, 121, 0.87);
     color: white;
     justify-content: center;
-}
+    margin: 10px;
+ }
 
 #quiz-question {
    display: none;
-}
+ }
 
 #start-container, 
 #game-over-container,
@@ -68,34 +65,47 @@ right: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+ }
 
 #start-button:hover,
+#submit-button:hover,
 .answer-button:hover {
     background-color: rgba(182, 80, 229, 0.955);
-}
-
-.answer-button {
-    margin: 10px;
-}
+ }
 
 #answers-container ol li {
     list-style: decimal inside none;
     color: white;
-}
+ }
 
 #high-scores-list {
     padding-left: 20px;
-}
+ } 
+
+.feedback-container {
+    margin-top: 10px;
+    font-size: 25px;
+ }
+
+.correct {
+    color: green;
+    
+ }
+
+.wrong {
+    color: red;
+ }
 
 /* Stytling for the game over and high scores ontainer */
 #game-over-container,
 #high-scores-container {
     display: none;
     text-align: center;
-}
+ }
+
 
 #game-over-container input[type="text"],
 #game-over-container button {
     margin-top: 10px;
-}
+ }
+ 
