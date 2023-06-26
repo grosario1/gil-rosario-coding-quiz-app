@@ -83,8 +83,13 @@ right: 10px;
  } 
 
 .feedback-container {
+    font-style: italic;
     margin-top: 10px;
     font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid black;
  }
 
 .correct {
