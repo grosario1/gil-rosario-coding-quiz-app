@@ -28,6 +28,9 @@ var questions = [
   ];
 
 // DOM elements to get Element content from html
+var mainContainer = document.querySelector(".main");
+var heading = mainContainer.querySelector("h1");
+var paragraph = mainContainer.querySelector("p");
 var startButton = document.getElementById("start-button");
 var startContainer = document.getElementById("start-container");
 var questionContainer = document.getElementById("quiz-question");
@@ -133,6 +136,8 @@ function endQuiz() {
     questionContainer.style.display = "none";
     timerContainer.style.display = "none";
     gameOverContainer.style.display = "block";
+    mainContainer.removeChild(heading);
+    mainContainer.removeChild(paragraph);
   }
   
 function saveScore() {
