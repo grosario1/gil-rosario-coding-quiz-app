@@ -32,6 +32,8 @@ right: 10px;
 
 /* Styling for the Start Quiz button */
 #start-button,
+#go-back-button,
+#clear-scores-button,
 #submit-button {
     margin: 0 auto;
     display: inline-block;
@@ -69,6 +71,8 @@ right: 10px;
 
 #start-button:hover,
 #submit-button:hover,
+#go-back-button:hover,
+#clear-scores-button:hover,
 .answer-button:hover {
     background-color: rgba(182, 80, 229, 0.955);
  }

@@ -59,6 +59,8 @@ for (var i = 0; i < answerButtons.length; i++) {
   answerButtons[i].addEventListener("click", selectAnswer);
 }
 submitButton.addEventListener("click", saveScore);
+goBackButton.addEventListener("click", goBack);
+clearScoresButton.addEventListener("click", clearScores);
 
 // Quiz functions
 function startQuiz() {
@@ -148,19 +150,24 @@ function saveScore() {
       highScores.sort(function(a, b) {
         return b.score - a.score;
       });
+      localStorage.setItem("highScores", JSON.stringify(highScores));
       displayHighScores();
       showHighScores();
     }
   }
   
 function displayHighScores() {
-    highScoresList.innerHTML = "";
+  highScoresList.innerHTML = "";
+  var storedScores = JSON.parse(localStorage.getItem("highScores"));
+  if (storedScores) {
+    highScores = storedScores;
     for (var i = 0; i < highScores.length; i++) {
       var scoreEntry = highScores[i];
       var li = document.createElement("li");
       li.textContent = scoreEntry.initials + " - " + scoreEntry.score;
       highScoresList.appendChild(li);
     }
+   }
   }
   
 function showHighScores() {
@@ -169,4 +176,25 @@ function showHighScores() {
     timerContainer.style.display = "none";
     gameOverContainer.style.display = "none";
     highScoresContainer.style.display = "block";
+    displayHighScores();
+  }
+
+function goBack() {
+    highScoresContainer.style.display = "none";
+    startContainer.style.display = "block";
+    questionContainer.style.display = "none";
+    timerContainer.style.display = "none";
+    gameOverContainer.style.display = "none";
+    highScoresContainer.style.display = "none";
+    timeLeft = 0;
+    score = 0;
+    currentQuestionIndex = 0;
+    clearInterval(timerInterval);
+  }
+  
+function clearScores() {
+    highScores = [];
+    localStorage.removeItem("highScores");
+
+    displayHighScores();
   }
