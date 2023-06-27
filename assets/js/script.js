@@ -44,6 +44,8 @@ var submitButton = document.getElementById("submit-button");
 var highScoresList = document.getElementById("high-scores-list");
 var viewScoresLink = document.getElementById("view-scores-link");
 var highScoresContainer = document.getElementById("high-scores-container");
+var goBackButton = document.getElementById("go-back-button");
+var clearScoresButton = document.getElementById("clear-scores-button");
 
 // Variables needed to store quiz data
 var timeLeft;
@@ -62,7 +64,7 @@ submitButton.addEventListener("click", saveScore);
 goBackButton.addEventListener("click", goBack);
 clearScoresButton.addEventListener("click", clearScores);
 
-// Quiz functions
+// functions that serves the content for the page
 function startQuiz() {
   startContainer.style.display = "none";
   questionContainer.style.display = "block";
@@ -176,12 +178,14 @@ function showHighScores() {
     timerContainer.style.display = "none";
     gameOverContainer.style.display = "none";
     highScoresContainer.style.display = "block";
+    mainContainer.removeChild(heading);
+    mainContainer.removeChild(paragraph);
     displayHighScores();
   }
 
 function goBack() {
     highScoresContainer.style.display = "none";
-    startContainer.style.display = "block";
+    startContainer.style.display = "flex";
     questionContainer.style.display = "none";
     timerContainer.style.display = "none";
     gameOverContainer.style.display = "none";
@@ -190,11 +194,12 @@ function goBack() {
     score = 0;
     currentQuestionIndex = 0;
     clearInterval(timerInterval);
+    
+    window.location.href = "./index.html"
   }
   
 function clearScores() {
     highScores = [];
     localStorage.removeItem("highScores");
-
     displayHighScores();
   }
