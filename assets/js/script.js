@@ -55,7 +55,7 @@ var currentQuestionIndex = 0;
 var timerInterval;
 var highScores = [];
 
-// Event listeners
+// Event listeners to trigger an event, in this case when a user clicks on a button on the page
 startButton.addEventListener("click", startQuiz);
 viewScoresLink.addEventListener("click", showHighScores);
 for (var i = 0; i < answerButtons.length; i++) {
@@ -65,8 +65,10 @@ submitButton.addEventListener("click", saveScore);
 goBackButton.addEventListener("click", goBack);
 clearScoresButton.addEventListener("click", clearScores);
 
-// functions that serves the content for the page
+// The following functions triggers a procedure based on inputs
+// Each function contain the name of what that procedure will do
 function startQuiz() {
+  mainContentContainer.style.display = "none";
   startContainer.style.display = "none";
   questionContainer.style.display = "block";
   timerContainer.style.display = "block";
