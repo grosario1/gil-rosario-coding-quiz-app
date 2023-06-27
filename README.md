@@ -24,11 +24,7 @@ You will then go through a series of questions based upon the following:
 
 Link to deployed live URL [here.](https://grosario1.github.io/gil-rosario-coding-quiz-app/)
 
-![Alt text]("../../assets/password-gen-main-page.jpg)
-![Alt tect]("../../assets/password-gen-character-length-prompt.jpg)
-![Alt tect]("../../assets/password-gen-special-chara-prompt.jpg)
-![Alt tect]("../../assets/password-gen-special-chara-prompt2.jpg)
-![Alt tect]("../../assets/generated-password.jpg)
+![Alt text]("../../assets/../coding-ap-main-pg.jpg)
 
 You can find code repo [here.](https://github.com/grosario1/gil-rosario-coding-quiz-app)
 
