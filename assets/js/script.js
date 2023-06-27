@@ -31,6 +31,7 @@ var questions = [
 var mainContainer = document.querySelector(".main");
 var heading = mainContainer.querySelector("h1");
 var paragraph = mainContainer.querySelector("p");
+var mainContentContainer = document.getElementById("main-content")
 var startButton = document.getElementById("start-button");
 var startContainer = document.getElementById("start-container");
 var questionContainer = document.getElementById("quiz-question");
@@ -184,18 +185,17 @@ function showHighScores() {
   }
 
 function goBack() {
+    mainContentContainer.style.display = "block";
     highScoresContainer.style.display = "none";
     startContainer.style.display = "flex";
     questionContainer.style.display = "none";
-    timerContainer.style.display = "none";
+    timerContainer.style.display = "block";
     gameOverContainer.style.display = "none";
     highScoresContainer.style.display = "none";
     timeLeft = 0;
     score = 0;
     currentQuestionIndex = 0;
     clearInterval(timerInterval);
-    
-    window.location.href = "./index.html"
   }
   
 function clearScores() {
