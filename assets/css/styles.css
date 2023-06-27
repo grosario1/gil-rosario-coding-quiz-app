@@ -50,11 +50,13 @@ right: 10px;
  }
 
 .answer-button {
+   font-size: large;
     display: list-item;
     background-color: rgba(43, 43, 121, 0.87);
     color: white;
     justify-content: center;
-    margin: 10px;
+    border-radius: 6px;
+    margin: 5px;
  }
 
 #quiz-question {
