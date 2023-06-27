@@ -24,7 +24,11 @@ You will then go through a series of questions based upon the following:
 
 Link to deployed live URL [here.](https://grosario1.github.io/gil-rosario-coding-quiz-app/)
 
-![Alt text]("../../assets/../coding-ap-main-pg.jpg)
+![Alt text]("../../assets/../images/coding-ap-main-pg.jpg)
+![Alt text]("../../assets/../images/coding-ap-question-example-on-page.jpg)
+![Alt text]("../../assets/../images/coding-ap-feeback-example.jpg)
+![Alt text]("../../assets/../images/coding-ap-endofquiz-pg.jpg)
+![Alt text]("../../assets/../images/coding-ap-viewhighscores-pg.jpg)
 
 You can find code repo [here.](https://github.com/grosario1/gil-rosario-coding-quiz-app)
 
