@@ -78,7 +78,7 @@ right: 10px;
  }
 
 #answers-container ol li {
-    list-style: decimal inside none;
+    list-style: decimal inside;
     color: white;
  }
 
